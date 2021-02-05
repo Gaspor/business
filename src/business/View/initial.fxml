@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="261.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.Control.initialController">
+   <children>
+      <Button fx:id="btnIrFolhaPagamento" layoutX="356.0" layoutY="224.0" mnemonicParsing="false" onAction="#folhaPagamentoButtonAction" text="Folha de Pagamento" />
+      <Button fx:id="btnEditarObra" layoutX="117.0" layoutY="224.0" mnemonicParsing="false" onAction="#editarObraButtonAction" text="Editar Obra" />
+      <Button fx:id="btnCriarObra" layoutX="14.0" layoutY="224.0" mnemonicParsing="false" onAction="#cadObraButtonAction" text="Criar Obra" />
+      <Button fx:id="btnIrHistoricoObras" layoutX="217.0" layoutY="224.0" mnemonicParsing="false" onAction="#historicoObrasButtonAction" text="Histórico de Obras" />
+   </children>
+</AnchorPane>

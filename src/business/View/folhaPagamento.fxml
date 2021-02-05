@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.Control.FolhaPagamentoController">
+   <children>
+      <Button fx:id="btnIrCadNovoFuncionario" layoutX="14.0" layoutY="246.0" mnemonicParsing="false" onAction="#cadFuncionarioButtonAction" text="Cadastrar Novo Funcionário" />
+      <Button fx:id="btnIrCadNovoFuncionario1" disable="true" layoutX="329.0" layoutY="246.0" mnemonicParsing="false" onAction="#cadFuncionarioButtonAction" text="Excluir Funcionário" />
+      <Button fx:id="btnIrCadNovoFuncionario11" disable="true" layoutX="196.0" layoutY="246.0" mnemonicParsing="false" onAction="#cadFuncionarioButtonAction" text="Editar Funcionário" />
+   </children>
+</AnchorPane>
