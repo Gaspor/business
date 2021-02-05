@@ -1,10 +1,12 @@
 package business;
 
+import static business.historicoObras.setStage;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class editarObra extends Application {
@@ -14,12 +16,11 @@ public class editarObra extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("View/editarObra.fxml"));
         
-        Scene scene = new Scene(root);
-        
         stage.setTitle("Editar Obra");
-        stage.setScene(scene);
-        stage.show();
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
         setStage(stage);
+        stage.showAndWait();
     }
 
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package business.Control;
 
-import business.folhaPagamento;
+import business.cadFuncionario;
 import business.historicoObras;
 import business.editarObra;
 import business.cadObra;
@@ -14,19 +14,10 @@ import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 
 public class initialController implements Initializable {    
-    public void folhaPagamentoButtonAction(ActionEvent event) {
-        folhaPagamento p = new folhaPagamento();
-        fecha();
-        try {
-            p.start(new Stage());
-        } catch (Exception ex) {
-            Logger.getLogger(initialController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     public void cadObraButtonAction(ActionEvent event) {
-        cadObra p = new cadObra();
-        fecha();
+        cadObra p = new cadObra();        
+        //fecha();
+        
         try {
             p.start(new Stage());
         } catch (Exception ex) {
@@ -35,8 +26,9 @@ public class initialController implements Initializable {
     }
     
     public void editarObraButtonAction(ActionEvent event) {
-        editarObra p = new editarObra();
-        fecha();
+        editarObra p = new editarObra();        
+        //fecha();
+        
         try {
             p.start(new Stage());
         } catch (Exception ex) {
@@ -45,8 +37,19 @@ public class initialController implements Initializable {
     }
     
     public void historicoObrasButtonAction(ActionEvent event) {
-        historicoObras p = new historicoObras();
-        fecha();
+        historicoObras p = new historicoObras();        
+        //fecha();
+        
+        try {
+            p.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(initialController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void cadFuncionarioButtonAction(ActionEvent event) {
+        cadFuncionario p = new cadFuncionario();
+        
         try {
             p.start(new Stage());
         } catch (Exception ex) {
@@ -62,5 +65,4 @@ public class initialController implements Initializable {
     public void fecha(){
         initial.getStage().close();
     }
-    
 }

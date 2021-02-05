@@ -8,9 +8,31 @@
 
 <AnchorPane id="AnchorPane" prefHeight="261.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.Control.initialController">
    <children>
-      <Button fx:id="btnIrFolhaPagamento" layoutX="356.0" layoutY="224.0" mnemonicParsing="false" onAction="#folhaPagamentoButtonAction" text="Folha de Pagamento" />
-      <Button fx:id="btnEditarObra" layoutX="117.0" layoutY="224.0" mnemonicParsing="false" onAction="#editarObraButtonAction" text="Editar Obra" />
-      <Button fx:id="btnCriarObra" layoutX="14.0" layoutY="224.0" mnemonicParsing="false" onAction="#cadObraButtonAction" text="Criar Obra" />
-      <Button fx:id="btnIrHistoricoObras" layoutX="217.0" layoutY="224.0" mnemonicParsing="false" onAction="#historicoObrasButtonAction" text="Histórico de Obras" />
+      <TabPane prefHeight="261.0" prefWidth="496.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Obras em Aberto">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="144.0" prefWidth="248.0">
+                     <children>
+                        <Button fx:id="btnIrHistoricoObras" layoutX="367.0" layoutY="194.0" mnemonicParsing="false" onAction="#historicoObrasButtonAction" text="Histórico de Obras" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" />
+                        <Button fx:id="btnEditarObra" layoutX="190.0" layoutY="194.0" mnemonicParsing="false" onAction="#editarObraButtonAction" text="Editar Obra" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="229.0" />
+                        <Button fx:id="btnCriarObra" layoutX="282.0" layoutY="194.0" mnemonicParsing="false" onAction="#cadObraButtonAction" text="Criar Obra" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="143.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Folha de Pagamento">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnIrCadNovoFuncionario" layoutX="56.0" layoutY="194.0" mnemonicParsing="false" onAction="#cadFuncionarioButtonAction" text="Cadastrar Novo Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="276.0" />
+                        <Button disable="true" layoutX="217.0" layoutY="194.0" mnemonicParsing="false" text="Editar Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" />
+                        <Button disable="true" layoutX="240.0" layoutY="194.0" mnemonicParsing="false" text="Excluir Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="140.0" />
+                     </children></AnchorPane>
+                    
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>
