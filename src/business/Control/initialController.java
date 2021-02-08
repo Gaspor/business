@@ -16,10 +16,10 @@ import javafx.stage.Stage;
 public class initialController implements Initializable {    
     public void cadObraButtonAction(ActionEvent event) {
         cadObra p = new cadObra();        
-        //fecha();
         
         try {
             p.start(new Stage());
+            
         } catch (Exception ex) {
             Logger.getLogger(initialController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -27,7 +27,6 @@ public class initialController implements Initializable {
     
     public void editarObraButtonAction(ActionEvent event) {
         editarObra p = new editarObra();        
-        //fecha();
         
         try {
             p.start(new Stage());
@@ -38,7 +37,6 @@ public class initialController implements Initializable {
     
     public void historicoObrasButtonAction(ActionEvent event) {
         historicoObras p = new historicoObras();        
-        //fecha();
         
         try {
             p.start(new Stage());

@@ -25,6 +25,6 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <DatePicker layoutX="185.0" layoutY="199.0" prefHeight="25.0" prefWidth="99.0" />
+      <DatePicker fx:id="dpDataPagamento" layoutX="185.0" layoutY="199.0" prefHeight="25.0" prefWidth="99.0" />
    </children>
 </AnchorPane>

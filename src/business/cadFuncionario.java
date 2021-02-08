@@ -19,11 +19,11 @@ public class cadFuncionario extends Application {
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         setStage(stage);
-        stage.showAndWait();
+        stage.showAndWait();        
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch(args);        
     }
     
     public static Stage getStage(){
