@@ -11,11 +11,11 @@
    <children>
       <Button fx:id="btnCancelCadFuncionario" layoutX="123.0" layoutY="243.0" mnemonicParsing="false" onAction="#cancelCadFuncionarioButtonAction" text="Cancelar" />
       <Button fx:id="btnCadastrarFuncionario" layoutX="253.0" layoutY="243.0" mnemonicParsing="false" onAction="#CadFuncionarioButtonAction" text="Cadastrar" />
-      <Label layoutX="54.0" layoutY="73.0" text="Nome do Funcionário: " />
-      <Label layoutX="56.0" layoutY="138.0" text="Cargo do Funcionário:" />
-      <Label layoutX="54.0" layoutY="203.0" text="Data para pagamento:" />
-      <Label layoutX="54.0" layoutY="171.0" text="Salário:" />
-      <Label layoutX="56.0" layoutY="104.0" text="Telefone:" />
+      <Label layoutX="54.0" layoutY="73.0" text="Nome do Funcionário*: " />
+      <Label layoutX="54.0" layoutY="138.0" text="Cargo do Funcionário*:" />
+      <Label layoutX="54.0" layoutY="203.0" text="Data para pagamento*:" />
+      <Label layoutX="55.0" layoutY="171.0" text="Salário*:" />
+      <Label layoutX="54.0" layoutY="104.0" text="Telefone*:" />
       <TextField fx:id="tfNomeFuncinario" layoutX="184.0" layoutY="69.0" prefHeight="25.0" prefWidth="205.0" promptText="Digite o nome do funcionário..." />
       <TextField fx:id="tfTelefoneFuncinario" layoutX="184.0" layoutY="100.0" prefHeight="25.0" prefWidth="118.0" promptText="Digite o telefone..." />
       <TextField fx:id="tfCargoFuncionario" layoutX="184.0" layoutY="134.0" prefHeight="25.0" prefWidth="205.0" promptText="Digite o cargo..." />

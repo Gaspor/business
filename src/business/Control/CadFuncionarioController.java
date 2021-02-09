@@ -1,7 +1,7 @@
 package business.Control;
 
 import business.cadFuncionario;
-import business.shared.dataBase;
+import business.shared.funcionario;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -35,7 +35,7 @@ public class CadFuncionarioController implements Initializable {
             Error(ErrorWarning);
             
         } else {
-            if(dataBase.dbFuncionarioConfirmation()){
+            if(funcionario.dbFuncionarioConfirmation()){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Funcionário cadastrado");
                 alert.setHeaderText("Novo Funcionário cadastrado!");

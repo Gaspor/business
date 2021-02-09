@@ -1,7 +1,7 @@
 package business.Control;
 
 import business.cadObra;
-import business.shared.dataBase;
+import business.shared.obra;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -43,7 +43,7 @@ public class CadObraController implements Initializable {
             Error(ErrorWarning);
             
         } else {
-            if(dataBase.dbObraConfirmation()){
+            if(obra.dbObraConfirmation()){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Obra cadastrada");
                 alert.setHeaderText("Nova Obra Cadastrada!");
