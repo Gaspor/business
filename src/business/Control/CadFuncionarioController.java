@@ -1,8 +1,10 @@
 package business.Control;
 
+import business.DAO.FuncionarioDao;
 import business.cadFuncionario;
 import business.shared.funcionario;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,59 +14,77 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class CadFuncionarioController implements Initializable {
-    @FXML public TextField tfNomeFuncinario;
-    @FXML private TextField tfCargoFuncionario;
-    @FXML private TextField tfSalarioFuncionario;
-    @FXML private TextField tfTelefoneFuncinario;
-    @FXML private DatePicker dpDataPagamento;
-    
+
+    @FXML
+    public TextField tfNomeFuncinario;
+    @FXML
+    private TextField tfCargoFuncionario;
+    @FXML
+    private TextField tfSalarioFuncionario;
+    @FXML
+    private TextField tfTelefoneFuncinario;
+    @FXML
+    private DatePicker dpDataPagamento;
+
     String ErrorWarning = "Ocorreu um erro!";
 
-    public void cancelCadFuncionarioButtonAction(ActionEvent event) {        
+    public void cancelCadFuncionarioButtonAction(ActionEvent event) {
         fecha();
     }
-    
+
     public void CadFuncionarioButtonAction(ActionEvent event) {
-        if (tfNomeFuncinario.getText().isEmpty() ||
-            tfCargoFuncionario.getText().isEmpty() ||
-            tfSalarioFuncionario.getText().isEmpty() ||
-            tfTelefoneFuncinario.getText().isEmpty() ||
-            dpDataPagamento.getValue() == null) {
-            
+        if (tfNomeFuncinario.getText().isEmpty()
+                || tfCargoFuncionario.getText().isEmpty()
+                || tfSalarioFuncionario.getText().isEmpty()
+                || tfTelefoneFuncinario.getText().isEmpty()
+                || dpDataPagamento.getValue() == null) {
+
             ErrorWarning = "Preencha todos os campos com *";
             Error(ErrorWarning);
-            
+
         } else {
-            if(funcionario.dbFuncionarioConfirmation()){
+            funcionario p = new funcionario();
+            p.setNome(tfNomeFuncinario.getText());
+            p.setTelefone(tfTelefoneFuncinario.getText());
+            p.setCargo(tfCargoFuncionario.getText());
+            p.setSalario(tfSalarioFuncionario.getText());
+            p.setData(dpDataPagamento.getValue().format(DateTimeFormatter.ISO_LOCAL_DATE));
+
+            FuncionarioDao dao = new FuncionarioDao();
+            
+            
+            
+
+            if (dao.add(p)) {            
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Funcionário cadastrado");
                 alert.setHeaderText("Novo Funcionário cadastrado!");
                 alert.showAndWait();
                 
+
             } else {
                 ErrorWarning = "Não foi possivel cadastrar o funcionário!";
                 Error(ErrorWarning);
-                
+
             }
-            fecha();  
-        }              
+            fecha();
+        }
     }
-    
-    public void fecha(){
+
+    public void fecha() {
         cadFuncionario.getStage().close();
     }
-    
-    public void Error(String strError){
+
+    public void Error(String strError) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erro");
         alert.setHeaderText("Funcionário Não cadastrado!");
         alert.setContentText(strError);
-        alert.showAndWait();    
+        alert.showAndWait();
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }
-}        
 
+    }
+}

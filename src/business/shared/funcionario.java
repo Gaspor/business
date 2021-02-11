@@ -3,6 +3,7 @@ package business.shared;
 public class funcionario {
     
 private String nome, telefone, data, cargo, salario; 
+
 private long id; 
 
     public funcionario(String nome, String telefone, String data, String cargo, String salario, long id) {
@@ -20,6 +21,10 @@ private long id;
         this.data = data;
         this.cargo = cargo;
         this.salario = salario;
+    }
+
+    public funcionario() {
+        
     }
 
 

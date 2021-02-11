@@ -28,6 +28,16 @@
                         <Button fx:id="btnIrCadNovoFuncionario" layoutX="56.0" layoutY="194.0" mnemonicParsing="false" onAction="#cadFuncionarioButtonAction" text="Cadastrar Novo Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="276.0" />
                         <Button disable="true" layoutX="217.0" layoutY="194.0" mnemonicParsing="false" text="Editar Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" />
                         <Button disable="true" layoutX="240.0" layoutY="194.0" mnemonicParsing="false" text="Excluir Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="140.0" />
+                        <TableView fx:id="tabela" layoutX="14.0" layoutY="14.0" prefHeight="470.0" prefWidth="773.0" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="413.0" AnchorPane.topAnchor="14.0">
+                          <columns>
+                              <TableColumn fx:id="tbID" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="tbNome" prefWidth="243.0" text="NOME" />
+                            <TableColumn fx:id="tbTelefone" prefWidth="104.0" text="TELEFONE" />
+                              <TableColumn fx:id="tbCargo" prefWidth="158.0" text="CARGO" />
+                              <TableColumn fx:id="tbSalario" prefWidth="98.0" text="SALARIO" />
+                              <TableColumn fx:id="tbData" prefWidth="94.0" text="DATA-PAG" />
+                          </columns>
+                        </TableView>
                      </children></AnchorPane>
                     
             </content>
