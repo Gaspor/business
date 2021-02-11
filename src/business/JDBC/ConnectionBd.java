@@ -9,7 +9,7 @@ public class ConnectionBd {
 
     public Connection getConnection() {
         String nomeUsuario = "postgres"; //Usuário do servidor padrão
-        String senhaUsuario = "gasdatabasepor"; // Senha do servidor
+        String senhaUsuario = "314159265359"; // Senha do servidor
         String enderecoServidor = "localhost:5433";
         String nomeBanco = "business";
 
