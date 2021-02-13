@@ -29,7 +29,7 @@
       </Label>
       <TextField fx:id="tfCadObraNomeFuncionario" layoutX="111.0" layoutY="50.0" prefHeight="25.0" prefWidth="473.0" />
       <TextField fx:id="tfTipoObra" layoutX="111.0" layoutY="111.0" prefHeight="25.0" prefWidth="473.0" />
-      <TextField fx:id="tfValorObra" layoutX="487.0" layoutY="81.0" prefHeight="25.0" prefWidth="97.0" />
+      <TextField fx:id="tfValorObra" alignment="BASELINE_RIGHT" layoutX="487.0" layoutY="81.0" prefHeight="25.0" prefWidth="97.0" />
       <DatePicker fx:id="dpInicioObra" layoutX="111.0" layoutY="80.0" prefHeight="25.0" prefWidth="105.0" />
       <DatePicker fx:id="dpEntregaObra" layoutX="324.0" layoutY="80.0" prefHeight="25.0" prefWidth="105.0" />
       <TextArea fx:id="tfDescricaoObra" layoutX="135.0" layoutY="142.0" prefHeight="62.0" prefWidth="447.0" />
@@ -37,7 +37,7 @@
       <Label layoutX="22.0" layoutY="273.0" prefHeight="17.0" prefWidth="105.0" text="Nome do Cliente*: " />
       <Label layoutX="34.0" layoutY="305.0" prefHeight="17.0" prefWidth="30.0" text="Rua*:" />
       <TextField fx:id="tfRuaCliente" layoutX="73.0" layoutY="301.0" prefHeight="25.0" prefWidth="223.0" />
-      <TextField fx:id="tfNumeroCasaCliente" layoutX="330.0" layoutY="301.0" prefHeight="25.0" prefWidth="49.0" />
+      <TextField fx:id="tfNumeroCasaCliente" alignment="BASELINE_RIGHT" layoutX="330.0" layoutY="301.0" prefHeight="25.0" prefWidth="49.0" />
       <Label layoutX="305.0" layoutY="305.0" prefHeight="17.0" prefWidth="30.0" text="Nº*: " />
       <TextField fx:id="tfBairroCliente" layoutX="440.0" layoutY="301.0" prefHeight="25.0" prefWidth="144.0" />
       <Label layoutX="395.0" layoutY="305.0" prefHeight="17.0" prefWidth="49.0" text="Bairro*: " />
