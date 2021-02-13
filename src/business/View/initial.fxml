@@ -39,8 +39,8 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Button fx:id="btnIrCadNovoFuncionario" layoutX="56.0" layoutY="194.0" mnemonicParsing="false" onAction="#cadFuncionarioButtonAction" text="Cadastrar Novo Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="276.0" />
-                        <Button disable="true" layoutX="217.0" layoutY="194.0" mnemonicParsing="false" text="Editar Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" />
-                        <Button disable="true" layoutX="240.0" layoutY="194.0" mnemonicParsing="false" text="Excluir Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="140.0" />
+                        <Button fx:id="btnEditarFuncionario" layoutX="217.0" layoutY="194.0" mnemonicParsing="false" text="Editar Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" />
+                        <Button fx:id="btnExcluirFuncionario" layoutX="240.0" layoutY="194.0" mnemonicParsing="false" onAction="#deleteFuncionarioButtonAction" text="Excluir Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="140.0" />
                         <TableView fx:id="tabela" layoutX="14.0" layoutY="14.0" prefHeight="470.0" prefWidth="773.0" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="413.0" AnchorPane.topAnchor="14.0">
                           <columns>
                               <TableColumn fx:id="tbID" prefWidth="75.0" text="ID" />
