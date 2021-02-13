@@ -1,10 +1,8 @@
 package business.shared;
 
-public class funcionario {
-    
-private String nome, telefone, data, cargo, salario; 
-
-private long id; 
+public class funcionario {    
+    private String nome, telefone, data, cargo, salario; 
+    private long id; 
 
     public funcionario(String nome, String telefone, String data, String cargo, String salario, long id) {
         this.nome = nome;
@@ -26,9 +24,6 @@ private long id;
     public funcionario() {
         
     }
-
-
-
 
     public String getNome() {
         return nome;
@@ -77,16 +72,4 @@ private long id;
     public void setId(long id) {
         this.id = id;
     }
-
-    public static boolean dbFuncionarioConfirmation(){
-        boolean connection = true;
-        
-        return connection;
-    }
-    
-    public static boolean dbObraConfirmation(){
-        boolean connection = true;
-        
-        return connection;
-    } 
 }

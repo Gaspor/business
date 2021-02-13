@@ -44,6 +44,6 @@
       <TextField fx:id="tfEmailCliente" layoutX="72.0" layoutY="334.0" prefHeight="25.0" prefWidth="307.0" />
       <Label layoutX="33.0" layoutY="338.0" prefHeight="17.0" prefWidth="41.0" text="E-mail: " />
       <Label layoutX="388.0" layoutY="338.0" prefHeight="17.0" prefWidth="62.0" text="Telefone*: " />
-      <TextField fx:id="tfEmailCliente" layoutX="446.0" layoutY="334.0" prefHeight="25.0" prefWidth="138.0" />
+      <TextField fx:id="tfTelefoneCliente" layoutX="446.0" layoutY="334.0" prefHeight="25.0" prefWidth="138.0" />
    </children>
 </AnchorPane>

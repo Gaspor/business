@@ -14,18 +14,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class CadFuncionarioController implements Initializable {
-
-    @FXML
-    public TextField tfNomeFuncinario;
-    @FXML
-    private TextField tfCargoFuncionario;
-    @FXML
-    private TextField tfSalarioFuncionario;
-    @FXML
-    private TextField tfTelefoneFuncinario;
-    @FXML
-    private DatePicker dpDataPagamento;
-
+    @FXML public TextField tfNomeFuncinario;
+    @FXML private TextField tfCargoFuncionario;
+    @FXML private TextField tfSalarioFuncionario;
+    @FXML private TextField tfTelefoneFuncinario;
+    @FXML private DatePicker dpDataPagamento;
+    
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     String ErrorWarning = "Ocorreu um erro!";
 
     public void cancelCadFuncionarioButtonAction(ActionEvent event) {
@@ -48,19 +43,15 @@ public class CadFuncionarioController implements Initializable {
             p.setTelefone(tfTelefoneFuncinario.getText());
             p.setCargo(tfCargoFuncionario.getText());
             p.setSalario(tfSalarioFuncionario.getText());
-            p.setData(dpDataPagamento.getValue().format(DateTimeFormatter.ISO_LOCAL_DATE));
+            p.setData(formatter.format(dpDataPagamento.getValue()));
 
             FuncionarioDao dao = new FuncionarioDao();
-            
-            
-            
 
-            if (dao.add(p)) {            
+            if (dao.add(p)) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Funcionário cadastrado");
                 alert.setHeaderText("Novo Funcionário cadastrado!");
                 alert.showAndWait();
-                
 
             } else {
                 ErrorWarning = "Não foi possivel cadastrar o funcionário!";
@@ -85,6 +76,7 @@ public class CadFuncionarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
 
     }
 }

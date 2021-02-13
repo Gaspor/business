@@ -17,6 +17,19 @@
                         <Button fx:id="btnIrHistoricoObras" layoutX="367.0" layoutY="194.0" mnemonicParsing="false" onAction="#historicoObrasButtonAction" text="Histórico de Obras" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" />
                         <Button fx:id="btnEditarObra" layoutX="190.0" layoutY="194.0" mnemonicParsing="false" onAction="#editarObraButtonAction" text="Editar Obra" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="229.0" />
                         <Button fx:id="btnCriarObra" layoutX="282.0" layoutY="194.0" mnemonicParsing="false" onAction="#cadObraButtonAction" text="Criar Obra" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="143.0" />
+                        <TableView fx:id="tabelaObras" layoutX="14.0" layoutY="14.0" prefHeight="504.0" prefWidth="1164.0" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                          <columns>
+                              <TableColumn fx:id="tbIdObra" prefWidth="52.0" text="ID" />
+                            <TableColumn fx:id="tbNomeCliente" prefWidth="234.0" text="Cliente" />
+                              <TableColumn fx:id="tbTelefoneCliente" prefWidth="100.0" text="Telefone" />
+                              <TableColumn fx:id="tbEmailCliente" minWidth="0.0" prefWidth="191.0" text="E-mail" />
+                            <TableColumn fx:id="tbTipoObra" prefWidth="138.0" text="Tipo de obra" />
+                              <TableColumn fx:id="tbValor" prefWidth="75.0" text="Valor" />
+                              <TableColumn fx:id="tbDescricao" prefWidth="215.0" text="Descrição da obra" />
+                              <TableColumn fx:id="tbDataInicio" prefWidth="82.0" text="Inicio" />
+                              <TableColumn fx:id="tbDataFim" text="Fim" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
             </content>
