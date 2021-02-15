@@ -174,6 +174,8 @@ public class CadObraController implements Initializable {
                 btnCadObra.setDisable(true);
 
             }
+            
+            tfCadObraNomeFuncionario.setText(newValue.replaceAll("\\d*", ""));
         });
 
         dpInicioObra.valueProperty().addListener((ov, oldValue, newValue) -> {
@@ -301,6 +303,8 @@ public class CadObraController implements Initializable {
                 btnCadObra.setDisable(true);
 
             }
+            
+            tfNomeCliente.setText(newValue.replaceAll("\\d*", ""));
         });
 
         tfRuaCliente.textProperty().addListener((observable, oldValue, newValue) -> {

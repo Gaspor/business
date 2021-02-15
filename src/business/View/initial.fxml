@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -14,9 +15,9 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="144.0" prefWidth="248.0">
                      <children>
-                        <Button fx:id="btnIrHistoricoObras" layoutX="367.0" layoutY="194.0" mnemonicParsing="false" onAction="#historicoObrasButtonAction" text="Histórico de Obras" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" />
-                        <Button fx:id="btnEditarObra" layoutX="190.0" layoutY="194.0" mnemonicParsing="false" onAction="#editarObraButtonAction" text="Editar Obra" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="229.0" />
-                        <Button fx:id="btnCriarObra" layoutX="282.0" layoutY="194.0" mnemonicParsing="false" onAction="#cadObraButtonAction" text="Criar Obra" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="143.0" />
+                        <Button fx:id="btnIrHistoricoObras" layoutX="979.0" layoutY="532.0" mnemonicParsing="false" onAction="#historicoObrasButtonAction" text="Histórico de Obras" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="106.0" />
+                        <Button fx:id="btnEditarObra" layoutX="799.0" layoutY="532.0" mnemonicParsing="false" onAction="#editarObraButtonAction" text="Editar Obra" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="324.0" />
+                        <Button fx:id="btnCriarObra" layoutX="717.0" layoutY="532.0" mnemonicParsing="false" onAction="#cadObraButtonAction" text="Criar Obra" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="412.0" />
                         <TableView fx:id="tabelaObras" layoutX="14.0" layoutY="14.0" prefHeight="504.0" prefWidth="1164.0" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                           <columns>
                               <TableColumn fx:id="tbIdObra" prefWidth="52.0" text="ID" />
@@ -30,6 +31,8 @@
                               <TableColumn fx:id="tbDataFim" text="Fim" />
                           </columns>
                         </TableView>
+                        <Button layoutX="887.0" layoutY="532.0" mnemonicParsing="false" text="Fechar Obra" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="232.0" />
+                        <Button layoutX="1106.0" layoutY="532.0" mnemonicParsing="false" style="-fx-background-color: #b52929;" text="Excluir Obra" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -38,9 +41,9 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="btnIrCadNovoFuncionario" layoutX="56.0" layoutY="194.0" mnemonicParsing="false" onAction="#cadFuncionarioButtonAction" text="Cadastrar Novo Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="276.0" />
-                        <Button fx:id="btnEditarFuncionario" layoutX="217.0" layoutY="194.0" mnemonicParsing="false" text="Editar Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" />
-                        <Button fx:id="btnExcluirFuncionario" layoutX="240.0" layoutY="194.0" mnemonicParsing="false" onAction="#deleteFuncionarioButtonAction" text="Excluir Funcionário" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="140.0" />
+                        <Button fx:id="btnIrCadNovoFuncionario" layoutX="774.0" layoutY="532.0" mnemonicParsing="false" onAction="#cadFuncionarioButtonAction" text="Cadastrar Novo Funcionário" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="262.0" />
+                        <Button fx:id="btnEditarFuncionario" layoutX="948.0" layoutY="532.0" mnemonicParsing="false" text="Editar Funcionário" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="140.0" />
+                        <Button fx:id="btnExcluirFuncionario" layoutX="1070.0" layoutY="532.0" mnemonicParsing="false" onAction="#deleteFuncionarioButtonAction" style="-fx-background-color: #b52929;" text="Excluir Funcionário" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
                         <TableView fx:id="tabela" layoutX="14.0" layoutY="14.0" prefHeight="470.0" prefWidth="773.0" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="413.0" AnchorPane.topAnchor="14.0">
                           <columns>
                               <TableColumn fx:id="tbID" prefWidth="75.0" text="ID" />

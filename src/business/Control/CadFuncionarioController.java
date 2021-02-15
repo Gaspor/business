@@ -5,6 +5,7 @@ import business.cadFuncionario;
 import business.shared.funcionario;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -274,6 +275,11 @@ public class CadFuncionarioController implements Initializable {
                 btnCadastrarFuncionario.setDisable(true);
 
             }
+            
+            tfNomeFuncinario.setText(newValue.replaceAll("\\d*", ""));
+            
+            
+  
         });
 
         tfCargoFuncionario.textProperty().addListener((observable, oldValue, newValue) -> {
