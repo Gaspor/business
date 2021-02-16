@@ -96,7 +96,6 @@ public class initialController implements Initializable {
         alert.setTitle("Confirmação");
         alert.setHeaderText("Certeza que gostaria de excluir o Funcionario NOMEFUNCIONARIO");
         alert.showAndWait();
-
         
         initTableFuncionario();
     }
