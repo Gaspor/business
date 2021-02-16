@@ -9,17 +9,28 @@ public class ConnectionBd {
 
     public Connection getConnection() {
         String nomeUsuario = "postgres"; //Usuário do servidor padrão
-        String senhaUsuario = "gasdatabasepor"; // Senha do servidor
+        String senhaUsuario = "hZjbg}e]Xniyup"; // Senha do servidor
         String enderecoServidor = "localhost:5433";
         String nomeBanco = "business";
 
         try {
-            return DriverManager.getConnection("jdbc:postgresql://" + enderecoServidor + 
-                    "/" + nomeBanco, nomeUsuario, senhaUsuario);
-            
+            System.out.println("Tentando conexão com o banco Gaspor");
+            return DriverManager.getConnection("jdbc:postgresql://" + enderecoServidor
+                    + "/" + nomeBanco, nomeUsuario, Decode.decode(senhaUsuario));
+
         } catch (SQLException ex) {
-            System.out.println("Erro, sem conexão com o banco de dados");
-            throw new RuntimeException(ex);
+            System.out.println("Sem conexão com o banco Gaspor");
+            
+            senhaUsuario = "4*+/;B61,.9B";
+            try {
+                System.out.println("Tentando conexão com o banco Friday");
+                return DriverManager.getConnection("jdbc:postgresql://" + enderecoServidor
+                        + "/" + nomeBanco, nomeUsuario, Decode.decode(senhaUsuario));
+
+            } catch (SQLException e) {
+                System.out.println("Erro, sem conexão com o banco de dados");
+                throw new RuntimeException(e);
+            }
         }
     }
 
