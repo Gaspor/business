@@ -66,5 +66,21 @@ public class FuncionarioDao {
             return false;
         }
     }
+     public boolean delete(funcionario p) {
+
+        String sql = "DELETE FROM funcionario WHERE id = ?;";
+
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setLong(1, p.getId());
+            stmt.executeUpdate();
+            return true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
 
 }

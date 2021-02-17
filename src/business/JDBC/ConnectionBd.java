@@ -21,8 +21,9 @@ public class ConnectionBd {
         } catch (SQLException ex) {
             System.out.println("Sem conexão com o banco Gaspor");
             
-            senhaUsuario = "4*+/;B61,.9B";
+            
             try {
+                senhaUsuario = "4*+/;B61,.9B";
                 System.out.println("Tentando conexão com o banco Friday");
                 return DriverManager.getConnection("jdbc:postgresql://" + enderecoServidor
                         + "/" + nomeBanco, nomeUsuario, Decode.decode(senhaUsuario));
