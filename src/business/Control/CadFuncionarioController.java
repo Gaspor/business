@@ -18,13 +18,13 @@ import javafx.scene.control.Button;
 public class CadFuncionarioController implements Initializable {
 
     @FXML
-    public TextField tfNomeFuncinario;
+    public TextField tfNomeFuncionario;
     @FXML
     private TextField tfCargoFuncionario;
     @FXML
     private TextField tfSalarioFuncionario;
     @FXML
-    private TextField tfTelefoneFuncinario;
+    private TextField tfTelefoneFuncionario;
     @FXML
     private DatePicker dpDataPagamento;
     @FXML
@@ -37,18 +37,18 @@ public class CadFuncionarioController implements Initializable {
     }
 
     public void CadFuncionarioButtonAction(ActionEvent event) {
-        if (tfNomeFuncinario.getText().isEmpty()
+        if (tfNomeFuncionario.getText().isEmpty()
                 || tfCargoFuncionario.getText().isEmpty()
                 || tfSalarioFuncionario.getText().isEmpty()
-                || tfTelefoneFuncinario.getText().isEmpty()
+                || tfTelefoneFuncionario.getText().isEmpty()
                 || dpDataPagamento.getValue() == null) {
 
             Error("Preencha todos os campos com *");
 
         } else {
             funcionario p = new funcionario();
-            p.setNome(tfNomeFuncinario.getText());
-            p.setTelefone(tfTelefoneFuncinario.getText());
+            p.setNome(tfNomeFuncionario.getText());
+            p.setTelefone(tfTelefoneFuncionario.getText());
             p.setCargo(tfCargoFuncionario.getText());
             p.setSalario(tfSalarioFuncionario.getText());
             p.setData(formatter.format(dpDataPagamento.getValue()));
@@ -74,10 +74,10 @@ public class CadFuncionarioController implements Initializable {
     }
 
     public boolean enableButton() {
-        if (tfNomeFuncinario.getText().length() >= 4
+        if (tfNomeFuncionario.getText().length() >= 4
                 && tfCargoFuncionario.getText().length() >= 4
                 && tfSalarioFuncionario.getText().length() >= 3
-                && tfTelefoneFuncinario.getText().length() >= 15
+                && tfTelefoneFuncionario.getText().length() >= 15
                 && dpDataPagamento.getValue() != null) {
             return true;
         }
@@ -96,7 +96,7 @@ public class CadFuncionarioController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         btnCadastrarFuncionario.setDisable(true);
         
-        tfTelefoneFuncinario.textProperty().addListener((observable, oldValue, newValue) -> {
+        tfTelefoneFuncionario.textProperty().addListener((observable, oldValue, newValue) -> {
             if (enableButton()) {
                 btnCadastrarFuncionario.setDisable(false);
 
@@ -109,10 +109,10 @@ public class CadFuncionarioController implements Initializable {
                 return;
 
             }
-            tfTelefoneFuncinario.setText(newValue.replaceAll("[^\\d]", ""));
+            tfTelefoneFuncionario.setText(newValue.replaceAll("[^\\d]", ""));
 
             Utilities t = new Utilities();
-            t.formatterPhoneNumber(tfTelefoneFuncinario);
+            t.formatterPhoneNumber(tfTelefoneFuncionario);
         });
 
         tfSalarioFuncionario.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -134,7 +134,7 @@ public class CadFuncionarioController implements Initializable {
             v.formatterCurrenry(tfSalarioFuncionario);
         });
 
-        tfNomeFuncinario.textProperty().addListener((observable, oldValue, newValue) -> {
+        tfNomeFuncionario.textProperty().addListener((observable, oldValue, newValue) -> {
             if (enableButton()) {
                 btnCadastrarFuncionario.setDisable(false);
 
@@ -143,7 +143,7 @@ public class CadFuncionarioController implements Initializable {
 
             }
 
-            tfNomeFuncinario.setText(newValue.replaceAll("\\d*", ""));
+            tfNomeFuncionario.setText(newValue.replaceAll("\\d*", ""));
         });
 
         tfCargoFuncionario.textProperty().addListener((observable, oldValue, newValue) -> {

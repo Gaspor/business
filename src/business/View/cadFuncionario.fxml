@@ -16,8 +16,8 @@
       <Label layoutX="54.0" layoutY="203.0" text="Data para pagamento*:" />
       <Label layoutX="55.0" layoutY="171.0" text="Salário*:" />
       <Label layoutX="54.0" layoutY="104.0" text="Telefone*:" />
-      <TextField fx:id="tfNomeFuncinario" layoutX="184.0" layoutY="69.0" prefHeight="25.0" prefWidth="205.0" promptText="Digite o nome do funcionário..." />
-      <TextField fx:id="tfTelefoneFuncinario" layoutX="184.0" layoutY="100.0" prefHeight="25.0" prefWidth="120.0" promptText="Digite o telefone..." />
+      <TextField fx:id="tfNomeFuncionario" layoutX="184.0" layoutY="69.0" prefHeight="25.0" prefWidth="205.0" promptText="Digite o nome do funcionário..." />
+      <TextField fx:id="tfTelefoneFuncionario" layoutX="184.0" layoutY="100.0" prefHeight="25.0" prefWidth="120.0" promptText="Digite o telefone..." />
       <TextField fx:id="tfCargoFuncionario" layoutX="184.0" layoutY="134.0" prefHeight="25.0" prefWidth="205.0" promptText="Digite o cargo..." />
       <TextField fx:id="tfSalarioFuncionario" alignment="BASELINE_RIGHT" layoutX="184.0" layoutY="167.0" prefHeight="25.0" prefWidth="99.0" promptText="Digite o salário..." />
       <Label alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="43.0" prefWidth="405.0" text="Área para Cadastro de Novos Funcionários">
