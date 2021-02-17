@@ -48,7 +48,7 @@ public class initialController implements Initializable {
     @FXML
     private Button btnExcluirFuncionario;
     private funcionario selecionado;
-    
+
     @FXML
     private Button btnEditarFuncionario;
 
@@ -72,9 +72,15 @@ public class initialController implements Initializable {
     private TableColumn<obra, String> tbValor;
     @FXML
     private TableColumn<obra, Long> tbIdObra;
-    
+    private obra obraSelecionada;
+    @FXML
+    private Button btnEditarObra;
+    @FXML
+    private Button btnExcluirObra;
+    @FXML
+    private Button btnFecharObra;
 
-    public void deletar() {
+    public void deletarFuncionario() {
         if (selecionado != null) {
             FuncionarioDao dao = new FuncionarioDao();
             dao.delete(selecionado);
@@ -82,6 +88,22 @@ public class initialController implements Initializable {
             a.setHeaderText("Usúario deletado com sucesso");
             a.show();
             tabela.setItems(atualizaTabelaFuncionario());
+        } else {
+            Alert a = new Alert(AlertType.WARNING);
+            a.setHeaderText("Selecione um funcionario");
+            a.show();
+        }
+
+    }
+    
+    public void deletarObra() {
+        if (obraSelecionada != null) {
+            ObraDao dao = new ObraDao();
+            dao.delete(obraSelecionada);
+            Alert a = new Alert(AlertType.CONFIRMATION);
+            a.setHeaderText("Usúario deletado com sucesso");
+            a.show();
+            tabelaObras.setItems(atualizaTabelaObra());
         } else {
             Alert a = new Alert(AlertType.WARNING);
             a.setHeaderText("Selecione um funcionario");
@@ -140,11 +162,23 @@ public class initialController implements Initializable {
         alert.setHeaderText("Certeza que gostaria de excluir o Funcionario NOMEFUNCIONARIO");
         alert.showAndWait();
          */
-        deletar();
+        deletarFuncionario();
         initTableFuncionario();
 
     }
-     public void editFuncionarioButtonAction(ActionEvent event) {
+    
+    public void deleteObraButtonAction(ActionEvent event) {
+        /* Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação");
+        alert.setHeaderText("Certeza que gostaria de excluir o Funcionario NOMEFUNCIONARIO");
+        alert.showAndWait();
+         */
+        deletarObra();
+        initTableObra();
+
+    }
+
+    public void editFuncionarioButtonAction(ActionEvent event) {
         editarFuncionario p = new editarFuncionario();
 
         try {
@@ -155,24 +189,17 @@ public class initialController implements Initializable {
         }
         initTableFuncionario();
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        btnEditarObra.setDisable(true);
+        btnExcluirObra.setDisable(true);
+        btnFecharObra.setDisable(true);
         btnExcluirFuncionario.setDisable(true);
         btnEditarFuncionario.setDisable(true);
         initTableFuncionario();
         initTableObra();
-        
+
         tabela.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
@@ -183,6 +210,23 @@ public class initialController implements Initializable {
                 } else {
                     btnExcluirFuncionario.setDisable(false);
                     btnEditarFuncionario.setDisable(false);
+                }
+            }
+
+        });
+        
+        tabelaObras.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                obraSelecionada = (obra) newValue;
+                if (obraSelecionada != null) {
+                    btnEditarObra.setDisable(false);
+                    btnExcluirObra.setDisable(false);
+                    btnFecharObra.setDisable(false);
+                } else {
+                    btnEditarObra.setDisable(true);
+                    btnExcluirObra.setDisable(true);
+                    btnFecharObra.setDisable(true);
                 }
             }
 

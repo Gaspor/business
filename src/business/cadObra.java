@@ -1,6 +1,5 @@
 package business;
 
-import static business.historicoObras.setStage;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;

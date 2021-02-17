@@ -26,7 +26,7 @@ public class FuncionarioDao {
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 funcionario p = new funcionario();
                 p.setId(rs.getLong("id"));
                 p.setNome(rs.getString("nome"));
@@ -39,10 +39,10 @@ public class FuncionarioDao {
             stmt.close();
             rs.close();
             con.close();
-            
+
         } catch (SQLException ex) {
             System.out.println("Lista não retornada");
-            return null; 
+            return null;
         }
         return funcionarios;
     }
@@ -66,7 +66,8 @@ public class FuncionarioDao {
             return false;
         }
     }
-     public boolean delete(funcionario p) {
+
+    public boolean delete(funcionario p) {
 
         String sql = "DELETE FROM funcionario WHERE id = ?;";
 
@@ -81,6 +82,5 @@ public class FuncionarioDao {
             return false;
         }
     }
-
 
 }

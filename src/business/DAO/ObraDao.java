@@ -81,4 +81,20 @@ public class ObraDao {
             return false;
         }
     }
+    
+    public boolean delete(obra p) {
+
+        String sql = "DELETE FROM obra WHERE id = ?;";
+
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setLong(1, p.getId());
+            stmt.executeUpdate();
+            return true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }
