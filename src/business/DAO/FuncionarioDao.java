@@ -59,6 +59,30 @@ public class FuncionarioDao {
             stmt.setString(4, p.getSalario());
             stmt.setString(5, p.getData());
             stmt.executeUpdate();
+            stmt.close();       
+            con.close();
+            return true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public boolean update(funcionario p) {
+
+        String sql = "UPDATE funcionario SET nome = ?, telefone = ?, cargo = ?, salario = ? WHERE id = ?;";
+
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, p.getNome());
+            stmt.setString(2, p.getTelefone());
+            stmt.setString(3, p.getCargo());
+            stmt.setString(4, p.getSalario());
+            stmt.setLong(5, p.getId());
+            stmt.executeUpdate();
+            stmt.close();    
+            con.close();
             return true;
 
         } catch (SQLException ex) {
@@ -75,6 +99,8 @@ public class FuncionarioDao {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setLong(1, p.getId());
             stmt.executeUpdate();
+            stmt.close();
+            con.close();
             return true;
 
         } catch (SQLException ex) {

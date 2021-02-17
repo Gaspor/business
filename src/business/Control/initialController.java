@@ -179,7 +179,7 @@ public class initialController implements Initializable {
     }
 
     public void editFuncionarioButtonAction(ActionEvent event) {
-        editarFuncionario p = new editarFuncionario();
+        editarFuncionario p = new editarFuncionario(selecionado);
 
         try {
             p.start(new Stage());
@@ -188,6 +188,7 @@ public class initialController implements Initializable {
             Logger.getLogger(initialController.class.getName()).log(Level.SEVERE, null, ex);
         }
         initTableFuncionario();
+       
     }
 
     @Override
