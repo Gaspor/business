@@ -25,7 +25,7 @@ public class ObraDao {
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 obra p = new obra();
                 p.setId(rs.getLong("id"));
                 p.setNomeFuncionario(rs.getString("funcionario"));
@@ -40,24 +40,26 @@ public class ObraDao {
                 p.setBairroCliente(rs.getString("bairrocliente"));
                 p.setEmailCliente(rs.getString("emailcliente"));
                 p.setTelefoneCliente(rs.getString("telefonecliente"));
+                p.setStatus(rs.getString("status"));
                 obras.add(p);
             }
             stmt.close();
             rs.close();
             con.close();
-            
+
         } catch (SQLException ex) {
             System.out.println("Lista não retornada");
-            return null; 
+            return null;
+            
         }
+        
         return obras;
     }
 
     public boolean add(obra p) {
-
         String sql = "INSERT INTO obra(funcionario, inicioobra, fimobra, valorobra, tipoobra, descobra,"
-                + " nomecliente, ruacliente, ncasacliente, bairrocliente, emailcliente, telefonecliente) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                + " nomecliente, ruacliente, ncasacliente, bairrocliente, emailcliente, telefonecliente, status) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -73,28 +75,72 @@ public class ObraDao {
             stmt.setString(10, p.getBairroCliente());
             stmt.setString(11, p.getEmailCliente());
             stmt.setString(12, p.getTelefoneCliente());
+            stmt.setString(13, p.getStatus());
             stmt.executeUpdate();
+            
+            stmt.close();
+            con.close();
+            
             return true;
 
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+            
         }
     }
-    
-    public boolean delete(obra p) {
 
+    public boolean update(obra p) {
+        String sql = "UPDATE obra SET funcionario = ?, inicioobra = ?, fimobra = ?, valorobra = ?, tipoobra = ?, descobra = ?,"
+                + " nomecliente = ?, ruacliente = ?, ncasacliente = ?, bairrocliente = ?, emailcliente = ?, telefonecliente = ? "
+                + "WHERE id = ?;";
+
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, p.getNomeFuncionario());
+            stmt.setString(2, p.getDataInicio());
+            stmt.setString(3, p.getDataFim());
+            stmt.setString(4, p.getValor());
+            stmt.setString(5, p.getTipo());
+            stmt.setString(6, p.getDescObra());
+            stmt.setString(7, p.getNomeCliente());
+            stmt.setString(8, p.getRuaCliente());
+            stmt.setString(9, p.getNumCasaCliente());
+            stmt.setString(10, p.getBairroCliente());
+            stmt.setString(11, p.getEmailCliente());
+            stmt.setString(12, p.getTelefoneCliente());
+            stmt.setLong(13, p.getId());
+            stmt.executeUpdate();
+            
+            stmt.close();
+            con.close();
+            
+            return true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+            
+        }
+    }
+
+    public boolean delete(obra p) {
         String sql = "DELETE FROM obra WHERE id = ?;";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setLong(1, p.getId());
             stmt.executeUpdate();
+            
+            stmt.close();
+            con.close();
+            
             return true;
 
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+            
         }
     }
 }

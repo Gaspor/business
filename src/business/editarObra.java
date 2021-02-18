@@ -1,6 +1,7 @@
 package business;
 
-import static business.historicoObras.setStage;
+import business.Control.EditarObraController;
+import business.shared.obra;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +11,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class editarObra extends Application {
-    private static Stage stage;    
+    private static Stage stage;
+
+     public editarObra(obra p1){
+        EditarObraController.setObra2(p1);
+    
+    }    
     
     @Override
     public void start(Stage stage) throws Exception {

@@ -12,11 +12,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class FuncionarioDao {
-
     private Connection con;
 
     public FuncionarioDao() {
         this.con = new ConnectionBd().getConnection();
+        
     }
 
     public List<funcionario> getList() {
@@ -43,12 +43,13 @@ public class FuncionarioDao {
         } catch (SQLException ex) {
             System.out.println("Lista não retornada");
             return null;
+            
         }
+        
         return funcionarios;
     }
 
     public boolean add(funcionario p) {
-
         String sql = "INSERT INTO funcionario(nome, telefone, cargo, salario, datap) VALUES (?,?,?,?,?);";
 
         try {
@@ -66,12 +67,12 @@ public class FuncionarioDao {
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+            
         }
     }
     
     public boolean update(funcionario p) {
-
-        String sql = "UPDATE funcionario SET nome = ?, telefone = ?, cargo = ?, salario = ? WHERE id = ?;";
+        String sql = "UPDATE funcionario SET nome = ?, telefone = ?, cargo = ?, salario = ?, datap = ? WHERE id = ?;";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -79,7 +80,8 @@ public class FuncionarioDao {
             stmt.setString(2, p.getTelefone());
             stmt.setString(3, p.getCargo());
             stmt.setString(4, p.getSalario());
-            stmt.setLong(5, p.getId());
+            stmt.setString(5, p.getData());
+            stmt.setLong(6, p.getId());
             stmt.executeUpdate();
             stmt.close();    
             con.close();
@@ -88,11 +90,11 @@ public class FuncionarioDao {
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+            
         }
     }
 
     public boolean delete(funcionario p) {
-
         String sql = "DELETE FROM funcionario WHERE id = ?;";
 
         try {
@@ -106,7 +108,7 @@ public class FuncionarioDao {
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+            
         }
     }
-
 }

@@ -10,7 +10,7 @@
 <AnchorPane id="AnchorPane" prefHeight="436.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.Control.CadObraController">
    <children>
       <Button fx:id="btnCancelCadObra" layoutX="440.0" layoutY="392.0" mnemonicParsing="false" onAction="#cancelCadObra" text="Cancelar" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="114.0" />
-      <Button fx:id="btnCadObra" layoutX="516.0" layoutY="392.0" mnemonicParsing="false" onAction="#cadastrarObra" text="Cadastrar" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="33.0" />
+      <Button fx:id="btnCadObra" layoutX="516.0" layoutY="392.0" mnemonicParsing="false" onAction="#cadastrarObra" style="-fx-background-color: #21902B;" text="Cadastrar" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="33.0" />
       <Label layoutX="33.0" layoutY="54.0" prefHeight="17.0" prefWidth="74.0" text="Funcionário*: " />
       <Label layoutX="225.0" layoutY="84.0" prefHeight="17.0" prefWidth="97.0" text="Data de entrega*:" />
       <Label layoutX="446.0" layoutY="85.0" prefHeight="17.0" prefWidth="41.0" text="Valor*: " />

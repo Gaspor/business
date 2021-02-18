@@ -26,13 +26,6 @@ public class funcionario {
 
     }
 
-    public funcionario(String nome, String telefone, String cargo, String salario, long id) {
-        this.id = id; 
-        this.nome = nome;
-        this.telefone = telefone;
-        this.cargo = cargo;
-        this.salario = salario;
-    }
 
     public String getNome() {
         return nome;

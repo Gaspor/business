@@ -1,10 +1,16 @@
 package business.shared;
 
 import java.util.regex.Pattern;
+import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.paint.Color;
 
 public class Utilities {
+
     public void formatterPhoneNumber(TextField nameTextField) {
         final char seperatorChar = '-';
         final char parenteseEsquerdaChar = '(';
@@ -23,6 +29,7 @@ public class Utilities {
                 return c;
 
             }
+
             if (!p.matcher(newText).matches()) {
                 return null;
 
@@ -41,14 +48,17 @@ public class Utilities {
                     if (digits == 4) {
                         sb.append(seperatorChar);
 
-                    } if (digits == 9) {
+                    }
+                    if (digits == 9) {
                         sb.append(" ");
                         digits++;
 
-                    } if (digits == 10) {
+                    }
+                    if (digits == 10) {
                         sb.append(parenteseDireitaChar);
 
-                    } if (digits >= 13) {
+                    }
+                    if (digits >= 13) {
                         return null;
 
                     }
@@ -62,7 +72,9 @@ public class Utilities {
                     sb.deleteCharAt(sb.length() - 1);
 
                 }
-            } if (digits == 12) {
+            }
+
+            if (digits == 12) {
                 sb.append(parenteseEsquerdaChar);
 
             }
@@ -87,17 +99,18 @@ public class Utilities {
         Valor.setTextFormatter(new TextFormatter<>(sa -> {
             if (!sa.isContentChange()) {
                 return sa;
-                
+
             }
 
             String newText = sa.getControlNewText();
 
             if (newText.isEmpty()) {
                 return sa;
-                
-            } if (!s.matcher(newText).matches()) {
+
+            }
+            if (!s.matcher(newText).matches()) {
                 return null;
-                
+
             }
 
             int digits = 0;
@@ -113,7 +126,8 @@ public class Utilities {
                     if (digits == 2) {
                         sb.append(commaChar);
 
-                    } if (digits == 5 || (digits - 2) % 3 == 0 && digits > 5) {
+                    }
+                    if (digits == 5 || (digits - 2) % 3 == 0 && digits > 5) {
                         sb.append(dotChar);
 
                     }
@@ -123,7 +137,9 @@ public class Utilities {
             if (digits == 2 || digits == 5 || (digits - 2) % 3 == 0) {
                 sb.deleteCharAt(sb.length() - 1);
 
-            } if (digits > 2) {
+            }
+
+            if (digits > 2) {
                 sb.append(" ");
                 sb.append("$");
                 sb.append("R");
@@ -140,5 +156,30 @@ public class Utilities {
 
             return sa;
         }));
+    }
+
+    public void setColor(TableColumn str) {
+        str.setCellFactory(e -> new TableCell<ObservableList<String>, String>() {
+            @Override
+            public void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (item == null || empty) {
+                    setText(null);
+                    
+                } else {
+                    this.setAlignment(Pos.CENTER);
+                    setText(item);
+                    
+                    if ("Ativo".equals(item)) {
+                        this.setTextFill(Color.GREEN);
+                        
+                    } if ("Fechado".equals(item)) {
+                        this.setTextFill(Color.CRIMSON);
+                        
+                    }
+                }
+            }
+        });
     }
 }

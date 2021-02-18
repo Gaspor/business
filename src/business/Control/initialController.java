@@ -8,9 +8,11 @@ import business.editarObra;
 import business.cadObra;
 import business.editarFuncionario;
 import business.initial;
+import business.shared.Utilities;
 import business.shared.funcionario;
 import business.shared.obra;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +26,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -48,7 +51,6 @@ public class initialController implements Initializable {
     @FXML
     private Button btnExcluirFuncionario;
     private funcionario selecionado;
-
     @FXML
     private Button btnEditarFuncionario;
 
@@ -71,46 +73,16 @@ public class initialController implements Initializable {
     @FXML
     private TableColumn<obra, String> tbValor;
     @FXML
-    private TableColumn<obra, Long> tbIdObra;
-    private obra obraSelecionada;
+    private TableColumn<obra, String> tbStatusObra;
+    @FXML
+    private TableColumn<obra, Long> tbIdObra;    
     @FXML
     private Button btnEditarObra;
     @FXML
     private Button btnExcluirObra;
     @FXML
     private Button btnFecharObra;
-
-    public void deletarFuncionario() {
-        if (selecionado != null) {
-            FuncionarioDao dao = new FuncionarioDao();
-            dao.delete(selecionado);
-            Alert a = new Alert(AlertType.CONFIRMATION);
-            a.setHeaderText("Usúario deletado com sucesso");
-            a.show();
-            tabela.setItems(atualizaTabelaFuncionario());
-        } else {
-            Alert a = new Alert(AlertType.WARNING);
-            a.setHeaderText("Selecione um funcionario");
-            a.show();
-        }
-
-    }
-    
-    public void deletarObra() {
-        if (obraSelecionada != null) {
-            ObraDao dao = new ObraDao();
-            dao.delete(obraSelecionada);
-            Alert a = new Alert(AlertType.CONFIRMATION);
-            a.setHeaderText("Usúario deletado com sucesso");
-            a.show();
-            tabelaObras.setItems(atualizaTabelaObra());
-        } else {
-            Alert a = new Alert(AlertType.WARNING);
-            a.setHeaderText("Selecione um funcionario");
-            a.show();
-        }
-
-    }
+    private obra obraSelecionada;
 
     public void cadObraButtonAction(ActionEvent event) {
         cadObra p = new cadObra();
@@ -120,18 +92,24 @@ public class initialController implements Initializable {
 
         } catch (Exception ex) {
             Logger.getLogger(initialController.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
+        
         initTableObra();
     }
 
     public void editarObraButtonAction(ActionEvent event) {
-        editarObra p = new editarObra();
+        editarObra p = new editarObra(obraSelecionada);
 
         try {
             p.start(new Stage());
+            
         } catch (Exception ex) {
             Logger.getLogger(initialController.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
+
+        initTableObra();
     }
 
     public void historicoObrasButtonAction(ActionEvent event) {
@@ -139,8 +117,55 @@ public class initialController implements Initializable {
 
         try {
             p.start(new Stage());
+            
         } catch (Exception ex) {
             Logger.getLogger(initialController.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+    }
+
+    public void closeObraButtonAction(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação");
+        alert.setHeaderText("Finalizar obra do cliente " + obraSelecionada.getNomeCliente());
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            deletarObra("Obra fechada com sucesso");
+            
+        }
+
+        initTableObra();
+    }
+
+    public void deleteObraButtonAction(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação");
+        alert.setHeaderText("Certeza que gostaria de excluir essa obra?");
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            deletarObra("Obra deletada com sucesso");
+
+        }
+
+        initTableObra();
+    }
+
+    public void deletarObra(String str) {
+        if (obraSelecionada != null) {
+            ObraDao dao = new ObraDao();
+            dao.delete(obraSelecionada);
+            Alert a = new Alert(AlertType.INFORMATION);
+            a.setHeaderText(str);
+            a.show();
+            tabelaObras.setItems(atualizaTabelaObra());
+            
+        } else {
+            Alert a = new Alert(AlertType.WARNING);
+            a.setHeaderText("Selecione uma Obra");
+            a.show();
+            
         }
     }
 
@@ -152,30 +177,10 @@ public class initialController implements Initializable {
 
         } catch (Exception ex) {
             Logger.getLogger(initialController.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
+        
         initTableFuncionario();
-    }
-
-    public void deleteFuncionarioButtonAction(ActionEvent event) {
-        /* Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmação");
-        alert.setHeaderText("Certeza que gostaria de excluir o Funcionario NOMEFUNCIONARIO");
-        alert.showAndWait();
-         */
-        deletarFuncionario();
-        initTableFuncionario();
-
-    }
-    
-    public void deleteObraButtonAction(ActionEvent event) {
-        /* Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmação");
-        alert.setHeaderText("Certeza que gostaria de excluir o Funcionario NOMEFUNCIONARIO");
-        alert.showAndWait();
-         */
-        deletarObra();
-        initTableObra();
-
     }
 
     public void editFuncionarioButtonAction(ActionEvent event) {
@@ -186,18 +191,65 @@ public class initialController implements Initializable {
 
         } catch (Exception ex) {
             Logger.getLogger(initialController.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
+        
         initTableFuncionario();
-       
+    }
+
+    public void deleteFuncionarioButtonAction(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação");
+        alert.setHeaderText("Certeza que gostaria de excluir o Funcionário " + selecionado.getNome());
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            deletarFuncionario();
+            
+        }
+
+        initTableFuncionario();
+    }
+
+    public void deletarFuncionario() {
+        if (selecionado != null) {
+            FuncionarioDao dao = new FuncionarioDao();
+            dao.delete(selecionado);
+            Alert a = new Alert(AlertType.INFORMATION);
+            a.setHeaderText("Funcionário deletado com sucesso");
+            a.show();
+            tabela.setItems(atualizaTabelaFuncionario());
+            
+        } else {
+            Alert a = new Alert(AlertType.WARNING);
+            a.setHeaderText("Selecione um Funcionário");
+            a.show();
+            
+        }
+    }
+
+    public void fecha() {
+        initial.getStage().close();
+        
+    }
+    
+    private void buttonFuncionario(boolean onOff){
+        btnExcluirFuncionario.setDisable(onOff);
+        btnEditarFuncionario.setDisable(onOff);
+        
+    }
+    
+    private void buttonObra(boolean onOff){
+        btnEditarObra.setDisable(onOff);
+        btnExcluirObra.setDisable(onOff);
+        btnFecharObra.setDisable(onOff);
+        
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnEditarObra.setDisable(true);
-        btnExcluirObra.setDisable(true);
-        btnFecharObra.setDisable(true);
-        btnExcluirFuncionario.setDisable(true);
-        btnEditarFuncionario.setDisable(true);
+        buttonFuncionario(true);
+        buttonObra(true);
         initTableFuncionario();
         initTableObra();
 
@@ -205,37 +257,31 @@ public class initialController implements Initializable {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 selecionado = (funcionario) newValue;
+                
                 if (selecionado == null) {
-                    btnExcluirFuncionario.setDisable(true);
-                    btnEditarFuncionario.setDisable(true);
+                    buttonFuncionario(true);
+                                        
                 } else {
-                    btnExcluirFuncionario.setDisable(false);
-                    btnEditarFuncionario.setDisable(false);
+                    buttonFuncionario(false);
+                    
                 }
             }
-
         });
-        
+
         tabelaObras.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 obraSelecionada = (obra) newValue;
-                if (obraSelecionada != null) {
-                    btnEditarObra.setDisable(false);
-                    btnExcluirObra.setDisable(false);
-                    btnFecharObra.setDisable(false);
+                
+                if (obraSelecionada == null) {
+                    buttonObra(true);
+                    
                 } else {
-                    btnEditarObra.setDisable(true);
-                    btnExcluirObra.setDisable(true);
-                    btnFecharObra.setDisable(true);
+                    buttonObra(false);
+                    
                 }
             }
-
         });
-    }
-
-    public void fecha() {
-        initial.getStage().close();
     }
 
     public void initTableFuncionario() {
@@ -256,6 +302,7 @@ public class initialController implements Initializable {
     }
 
     public void initTableObra() {
+        Utilities u = new Utilities();
         tbIdObra.setCellValueFactory(new PropertyValueFactory("id"));
         tbNomeCliente.setCellValueFactory(new PropertyValueFactory("nomeCliente"));
         tbTelefoneCliente.setCellValueFactory(new PropertyValueFactory("telefoneCliente"));
@@ -265,6 +312,8 @@ public class initialController implements Initializable {
         tbDescricao.setCellValueFactory(new PropertyValueFactory("descObra"));
         tbDataFim.setCellValueFactory(new PropertyValueFactory("dataFim"));
         tbDataInicio.setCellValueFactory(new PropertyValueFactory("dataInicio"));
+        tbStatusObra.setCellValueFactory(new PropertyValueFactory("status"));
+        u.setColor(tbStatusObra);
         tabelaObras.setItems(atualizaTabelaObra());
 
     }
@@ -272,5 +321,8 @@ public class initialController implements Initializable {
     public ObservableList<obra> atualizaTabelaObra() {
         ObraDao dao = new ObraDao();
         return FXCollections.observableArrayList(dao.getList());
+        
     }
+    
+    
 }

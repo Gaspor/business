@@ -16,7 +16,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
 public class CadFuncionarioController implements Initializable {
-
     @FXML
     public TextField tfNomeFuncionario;
     @FXML
@@ -77,7 +76,7 @@ public class CadFuncionarioController implements Initializable {
         if (tfNomeFuncionario.getText().length() >= 4
                 && tfCargoFuncionario.getText().length() >= 4
                 && tfSalarioFuncionario.getText().length() >= 3
-                && tfTelefoneFuncionario.getText().length() >= 15
+                && tfTelefoneFuncionario.getText().length() == 15
                 && dpDataPagamento.getValue() != null) {
             return true;
         }

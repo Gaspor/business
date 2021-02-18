@@ -99,6 +99,7 @@ public class CadObraController implements Initializable {
                         p.setBairroCliente(tfBairroCliente.getText());
                         p.setEmailCliente(tfEmailCliente.getText());
                         p.setTelefoneCliente(tfTelefoneCliente.getText());
+                        p.setStatus("Ativo");
 
                         ObraDao dao = new ObraDao();
 
@@ -112,24 +113,28 @@ public class CadObraController implements Initializable {
                             Error("Não foi possivel cadastrar a obra!");
 
                         }
+                        
                         fecha();
 
                     } else {
                         Error("O dia de fim da obra é menor que o dia de inicio!");
+                        
                     }
                 } else {
                     Error("O mês de fim da obra é menor que o mês de inicio!");
+                    
                 }
 
             } else {
                 Error("O ano de fim da obra é menor que o ano de inicio!");
+                
             }
-
         }
     }
 
     public void fecha() {
         cadObra.getStage().close();
+        
     }
 
     public boolean enableButton() {
@@ -143,13 +148,15 @@ public class CadObraController implements Initializable {
                 && dpEntregaObra.getValue() != null
                 && dpInicioObra.getValue() != null) {
 
-            if (tfEmailCliente.getText().length() >= 10 && tfTelefoneCliente.getText().length() >= 15
-                    || tfEmailCliente.getText().length() == 0 && tfTelefoneCliente.getText().length() >= 15
+            if (tfEmailCliente.getText().length() >= 10 && tfTelefoneCliente.getText().length() == 15
+                    || tfEmailCliente.getText().length() == 0 && tfTelefoneCliente.getText().length() == 15
                     || tfEmailCliente.getText().length() >= 10 && tfTelefoneCliente.getText().length() == 0) {
+                
                 return true;
 
             }
         }
+        
         return false;
     }
 
@@ -159,6 +166,7 @@ public class CadObraController implements Initializable {
         alert.setHeaderText("Obra não Cadastrada!");
         alert.setContentText(strError);
         alert.showAndWait();
+        
     }
 
     @Override
@@ -210,6 +218,7 @@ public class CadObraController implements Initializable {
                 return;
 
             }
+            
             tfValorObra.setText(newValue.replaceAll("[^\\d]", ""));
 
             Utilities v = new Utilities();
@@ -270,8 +279,8 @@ public class CadObraController implements Initializable {
             if (newValue.matches("\\d*")) {
                 return;
             }
+            
             tfNumeroCasaCliente.setText(newValue.replaceAll("[^\\d]", ""));
-
         });
 
         tfBairroCliente.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -307,11 +316,11 @@ public class CadObraController implements Initializable {
                 return;
 
             }
+            
             tfTelefoneCliente.setText(newValue.replaceAll("[^\\d]", ""));
 
             Utilities t = new Utilities();
             t.formatterPhoneNumber(tfTelefoneCliente);
         });
-
     }
 }

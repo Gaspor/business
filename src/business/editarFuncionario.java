@@ -6,7 +6,6 @@
 package business;
 
 import business.Control.EditarFuncionarioController;
-import business.JDBC.ConnectionBd;
 import business.shared.funcionario;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -21,20 +20,20 @@ import javafx.stage.Stage;
  * @author victor
  */
 public class editarFuncionario extends Application {
+
     private static Stage stage;
 
     public static void main(String[] args) {
         launch(args);
     }
-     public editarFuncionario(funcionario p1){
+
+    public editarFuncionario(funcionario p1) {
         EditarFuncionarioController.setFuncionario2(p1);
-    
+
     }
 
-
-
     @Override
-    public void start(Stage stage) throws Exception {        
+    public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("View/editarFuncionario.fxml"));
 
         Scene scene = new Scene(root);

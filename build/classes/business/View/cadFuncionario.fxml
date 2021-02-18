@@ -10,7 +10,7 @@
 <AnchorPane id="AnchorPane" prefHeight="304.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.Control.CadFuncionarioController">
    <children>
       <Button fx:id="btnCancelCadFuncionario" layoutX="116.0" layoutY="243.0" maxHeight="35.0" maxWidth="80.0" mnemonicParsing="false" onAction="#cancelCadFuncionarioButtonAction" prefHeight="25.0" prefWidth="70.0" text="Cancelar" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="234.0" />
-      <Button fx:id="btnCadastrarFuncionario" layoutX="250.0" layoutY="243.0" maxHeight="45.0" maxWidth="90.0" mnemonicParsing="false" onAction="#CadFuncionarioButtonAction" prefHeight="25.0" prefWidth="70.0" text="Cadastrar" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="100.0" />
+      <Button fx:id="btnCadastrarFuncionario" layoutX="250.0" layoutY="243.0" maxHeight="45.0" maxWidth="90.0" mnemonicParsing="false" onAction="#CadFuncionarioButtonAction" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #21902B;" text="Cadastrar" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="100.0" />
       <Label layoutX="54.0" layoutY="73.0" text="Nome do Funcionário*: " />
       <Label layoutX="54.0" layoutY="138.0" text="Cargo do Funcionário*:" />
       <Label layoutX="54.0" layoutY="203.0" text="Data para pagamento*:" />

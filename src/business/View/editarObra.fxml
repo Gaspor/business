@@ -9,8 +9,8 @@
 
 <AnchorPane id="AnchorPane" prefHeight="436.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.Control.EditarObraController">
    <children>
-      <Button fx:id="btnCancelEdit" layoutX="440.0" layoutY="392.0" mnemonicParsing="false" text="Cancelar" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="114.0" />
-      <Button fx:id="btnConfirmEdit" layoutX="516.0" layoutY="392.0" mnemonicParsing="false" text="Cadastrar" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="33.0" />
+      <Button fx:id="btnCancelEdit" layoutX="440.0" layoutY="392.0" mnemonicParsing="false" onAction="#cancelEditObraButtonAction" text="Cancelar" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="114.0" />
+      <Button fx:id="btnConfirmEdit" layoutX="522.0" layoutY="392.0" mnemonicParsing="false" onAction="#editObraButtonAction" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #21902B;" text="Editar" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="32.0" />
       <Label layoutX="33.0" layoutY="54.0" prefHeight="17.0" prefWidth="74.0" text="Funcionário*: " />
       <Label layoutX="225.0" layoutY="84.0" prefHeight="17.0" prefWidth="97.0" text="Data de entrega*:" />
       <Label layoutX="446.0" layoutY="85.0" prefHeight="17.0" prefWidth="41.0" text="Valor*: " />
@@ -22,7 +22,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="212.0" layoutY="3.0" prefHeight="42.0" prefWidth="193.0" text="Editar Trabalho">
+      <Label alignment="CENTER" layoutX="212.0" layoutY="3.0" prefHeight="42.0" prefWidth="193.0" text="Editar Trabalho">
          <font>
             <Font size="20.0" />
          </font>

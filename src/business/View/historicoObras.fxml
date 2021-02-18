@@ -6,6 +6,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.Control.HistoricoObrasController">
-    
+<AnchorPane id="AnchorPane" prefHeight="393.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.Control.HistoricoObrasController">
+   <children>
+      <TableView prefHeight="400.0" prefWidth="719.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Cliente" />
+          <TableColumn prefWidth="123.0" text="Tipo de Obra" />
+            <TableColumn prefWidth="151.0" text="Descrição da Obra" />
+            <TableColumn prefWidth="113.0" text="Data de Início" />
+            <TableColumn prefWidth="123.0" text="Data de Finalização" />
+            <TableColumn prefWidth="75.0" text="Status" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
