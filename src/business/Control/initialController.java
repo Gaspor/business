@@ -1,6 +1,7 @@
 package business.Control;
 
 import business.DAO.FuncionarioDao;
+import business.DAO.HistoricoDao;
 import business.DAO.ObraDao;
 import business.cadFuncionario;
 import business.historicoObras;
@@ -129,8 +130,11 @@ public class initialController implements Initializable {
         alert.setTitle("Confirmação");
         alert.setHeaderText("Finalizar obra do cliente " + obraSelecionada.getNomeCliente());
         Optional<ButtonType> result = alert.showAndWait();
-
+        
         if (result.get() == ButtonType.OK) {
+            HistoricoDao dao = new HistoricoDao();
+            obraSelecionada.setStatus("Finalizado");
+            dao.add(obraSelecionada);
             deletarObra("Obra fechada com sucesso");
             
         }

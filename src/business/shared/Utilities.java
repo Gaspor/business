@@ -174,7 +174,7 @@ public class Utilities {
                     if ("Ativo".equals(item)) {
                         this.setTextFill(Color.GREEN);
                         
-                    } if ("Fechado".equals(item)) {
+                    } if ("Finalizado".equals(item)) {
                         this.setTextFill(Color.CRIMSON);
                         
                     }

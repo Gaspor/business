@@ -6,17 +6,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="393.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.Control.HistoricoObrasController">
+<AnchorPane id="AnchorPane" prefHeight="516.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.Control.HistoricoObrasController">
    <children>
-      <TableView prefHeight="400.0" prefWidth="719.0">
+      <TableView fx:id="tvTabela" layoutX="-6.0" prefHeight="425.0" prefWidth="796.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Cliente" />
-          <TableColumn prefWidth="123.0" text="Tipo de Obra" />
-            <TableColumn prefWidth="151.0" text="Descrição da Obra" />
-            <TableColumn prefWidth="113.0" text="Data de Início" />
-            <TableColumn prefWidth="123.0" text="Data de Finalização" />
-            <TableColumn prefWidth="75.0" text="Status" />
+            <TableColumn fx:id="tbId" prefWidth="54.0" text="ID" />
+          <TableColumn fx:id="tbCliente" prefWidth="142.0" text="Cliente" />
+          <TableColumn fx:id="tbTipo" prefWidth="151.0" text="Tipo de Obra" />
+            <TableColumn fx:id="tbDesc" prefWidth="127.0" text="Descrição da Obra" />
+            <TableColumn fx:id="tbInicio" prefWidth="105.0" text="Data de Início" />
+            <TableColumn fx:id="tbFim" prefWidth="123.0" text="Data de Finalização" />
+            <TableColumn fx:id="tbValor" prefWidth="85.0" text="Valor" />
+            <TableColumn fx:id="tbStatus" prefWidth="66.0" text="Status" />
         </columns>
       </TableView>
+      <Button fx:id="btnExcluir" layoutX="705.0" layoutY="435.0" mnemonicParsing="false" onAction="#deleteHistoricoButtonAction" style="-fx-background-color: #b52929;" text="Excluir Tudo" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>
