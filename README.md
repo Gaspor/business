@@ -1,6 +1,6 @@
 # :money_with_wings: BUSINESS
 
-- Projeto para cadastro de funcionários e obras feito usando JavaFX.
+- Projeto para cadastro de funcionários e obras feito usando JavaFX e Postgres.
 
 ## :computer: Programadores:
   - :speech_balloon: Victor Amaral: [:computer: Github](https://github.com/Fri5Day)
