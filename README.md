@@ -1,4 +1,4 @@
-# BUSINESS
+# :money_with_wings: BUSINESS
 
 - Projeto para cadastro de funcionários e obras feito usando JavaFX.
 
