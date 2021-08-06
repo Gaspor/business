@@ -4,10 +4,10 @@ import business.DAO.FuncionarioDao;
 import business.DAO.HistoricoDao;
 import business.DAO.ObraDao;
 import business.cadFuncionario;
-import business.historicoObras;
-import business.editarObra;
 import business.cadObra;
 import business.editarFuncionario;
+import business.editarObra;
+import business.historicoObras;
 import business.initial;
 import business.shared.Utilities;
 import business.shared.funcionario;
@@ -15,6 +15,8 @@ import business.shared.obra;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
@@ -252,10 +254,18 @@ public class initialController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                initTableFuncionario();
+                initTableObra();
+            }
+        };
+        
+        timer.scheduleAtFixedRate(task, 0, 5000);
         buttonFuncionario(true);
         buttonObra(true);
-        initTableFuncionario();
-        initTableObra();
 
         tabela.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
@@ -286,7 +296,7 @@ public class initialController implements Initializable {
                 }
             }
         });
-    }
+}
 
     public void initTableFuncionario() {
         tbID.setCellValueFactory(new PropertyValueFactory("id"));
@@ -327,6 +337,4 @@ public class initialController implements Initializable {
         return FXCollections.observableArrayList(dao.getList());
         
     }
-    
-    
 }

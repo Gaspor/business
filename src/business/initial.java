@@ -15,7 +15,7 @@ public class initial extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {        
+    public void start(Stage stage) throws Exception {
         new ConnectionBd().getConnection();
         Parent root = FXMLLoader.load(getClass().getResource("View/initial.fxml"));
 
@@ -25,6 +25,10 @@ public class initial extends Application {
         stage.setScene(scene);
         stage.show();
         setStage(stage);
+        stage.setOnCloseRequest(event -> {
+            System.exit(0);
+        });
+        
     }
 
     public static Stage getStage() {
@@ -34,4 +38,5 @@ public class initial extends Application {
     public static void setStage(Stage stage) {
         initial.stage = stage;
     }
+
 }

@@ -10,7 +10,6 @@ import javafx.scene.control.TextFormatter;
 import javafx.scene.paint.Color;
 
 public class Utilities {
-
     public void formatterPhoneNumber(TextField nameTextField) {
         final char seperatorChar = '-';
         final char parenteseEsquerdaChar = '(';

@@ -3,3 +3,4 @@
 env.java
 build.xml
 /dist/
+nbproject/private/private.xml
